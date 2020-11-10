@@ -4,7 +4,7 @@
 #
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import datetime
 
 df = pd.read_csv("data.tsv", sep='\t', index_col="Date",parse_dates=["Date"])
 df = df.sort_index()
@@ -31,4 +31,6 @@ plt.title("7 day rolling average of new cases at WHS")
 
 
 
-plt.show()
+#plt.show()
+current_date = datetime.date.today().isoformat()
+plt.savefig("WHS_COVID_"+current_date)
