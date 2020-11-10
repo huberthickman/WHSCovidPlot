@@ -36,9 +36,9 @@ plt.title("7 day rolling average of new cases at WHS")
 
 
 
-plt.show()
+#plt.show()
 current_date = datetime.date.today().isoformat()
-plt.savefig("WHS_COVID_"+current_date)
+plt.savefig("images/WHS_COVID_CURRENT")
 
 
 #Use plotly instead of matplotlib for the bar charts
@@ -52,4 +52,4 @@ pfig.update_layout(barmode = 'group',
                    yaxis_title = 'Count'
                    )
 pfig.show()
-pfig.write_image('WHS_CUMULATIVE_COVID_'+current_date+'.png')
+pfig.write_image('images/WHS_CUMULATIVE_COVID_CURRENT.png')
