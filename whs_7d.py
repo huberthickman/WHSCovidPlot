@@ -5,6 +5,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+import plotly.graph_objects as go
+
 
 df = pd.read_csv("data.tsv", sep='\t', index_col="Date",parse_dates=["Date"])
 df = df.sort_index()
@@ -34,19 +36,20 @@ plt.title("7 day rolling average of new cases at WHS")
 
 
 
-#plt.show()
+plt.show()
 current_date = datetime.date.today().isoformat()
 plt.savefig("WHS_COVID_"+current_date)
 
-fig = plt.figure()
-ax = plt.subplot(1,1,1)
 
-ax.bar(df.index.values,
-       df['Students_sum'],
-       color='red')
-ax.set(xlabel = "Date", ylabel="Count", title = "WHS Student Cumulative COVID Cases")
-fig.autofmt_xdate(rotation=45)
-plt.ylim(0, 25)
-
-#plt.show()
-plt.savefig("WHS_STUDENT_COVID_"+current_date)
+#Use plotly instead of matplotlib for the bar charts
+pfig = go.Figure(data = [
+    go.Bar(name='Students', x = df.index, y=df['Students_sum']),
+    go.Bar(name='Staff', x=df.index, y=df['Staff_sum'])
+])
+pfig.update_layout(barmode = 'group',
+                   title = "WHS Cumulative COVID Cases ",
+                   xaxis_title = 'Date',
+                   yaxis_title = 'Count'
+                   )
+pfig.show()
+pfig.write_image('WHS_CUMULATIVE_COVID_'+current_date+'.png')
