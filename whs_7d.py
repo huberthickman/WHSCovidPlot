@@ -49,7 +49,10 @@ pfig = go.Figure(data = [
 pfig.update_layout(barmode = 'group',
                    title = "WHS Cumulative COVID Cases ",
                    xaxis_title = 'Date',
-                   yaxis_title = 'Count'
+                   yaxis_title = 'Count',
+                   margin_b = 90,
+                   annotations = [dict(xref = 'paper', yref= 'paper', x = 0.9, y = -0.1, font = dict(size = 8),
+                                       showarrow = False, text = '<i>Chart Generated ' + current_date + "</i>")]
                    )
 pfig.show()
 pfig.write_image('images/WHS_CUMULATIVE_COVID_CURRENT.png')
