@@ -23,10 +23,10 @@ print(df)
 
 fig = plt.figure()
 plt.plot_date(x=df.index, y=df['Students_7D'], fmt='bo-', tz=None, xdate=True,
-      ydate=False, label="Students 7D rolling avg", color='red')
+      ydate=False, label="Students 7D rolling avg", color='blue')
 
 plt.plot_date(x=df.index, y=df['Staff_7D'], fmt='ro-', tz=None, xdate=True,
-      ydate=False, label="Staff 7D rolling avg", color='blue')
+      ydate=False, label="Staff 7D rolling avg", color='red')
 
 fig.autofmt_xdate()
 plt.legend()
