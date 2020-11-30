@@ -55,4 +55,4 @@ pfig.update_layout(barmode = 'group',
                                        showarrow = False, text = '<i>Chart Generated ' + current_date + "</i>")]
                    )
 pfig.show()
-pfig.write_image('images/WHS_CUMULATIVE_COVID_CURRENT.png')
+pfig.write_image('images/WHS_CUMULATIVE_COVID_CURRENT.png', width=900)
