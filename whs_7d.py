@@ -8,7 +8,7 @@ import datetime
 import plotly.graph_objects as go
 
 
-df = pd.read_csv("data.tsv", sep='\t', index_col="Date",parse_dates=["Date"])
+df = pd.read_csv("data.tsv", sep=',', index_col="Date",parse_dates=["Date"])
 df = df.sort_index()
 
 print(df)
